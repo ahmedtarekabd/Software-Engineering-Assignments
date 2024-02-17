@@ -67,13 +67,22 @@ function createEmployee(e) {
     method: "POST",
     body: JSON.stringify({ id, name }),
   })
-    .then((response) => response.json())
+    .then(async (response) => {
+      if (response.ok) return response.json();
+
+      // Return error message if response is not ok
+      const error = await response.json();
+      throw new Error(error.message);
+    })
     .then((data) => {
-      console.log(data);
+      console.log("data", data);
       // call fetchEmployees
       fetchEmployees();
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.log("Error", error);
+      alert(error.message);
+    });
 }
 
 // TODO
