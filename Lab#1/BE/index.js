@@ -11,7 +11,7 @@ app.use(cors())
 const employeeRoutes = require('./routes/employee')
 
 // Mount routers
-app.use('/api/v1/employee', employeeRoutes)
+app.use('/api/v1/employee/', employeeRoutes)
 
 const PORT = 3000
 

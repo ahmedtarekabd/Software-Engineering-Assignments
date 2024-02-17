@@ -7,7 +7,7 @@ const {
   getEmployees,
 } = require('../controllers/employee')
 
-router.route('/').get(getEmployees).post(createEmployee)
+router.route('/').get(getEmployees).post(createEmployee).de
 
 router.route('/:id').delete(deleteEmployee)
 
